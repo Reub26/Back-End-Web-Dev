@@ -1,0 +1,22 @@
+#about-container {
+  margin-top: 20px;
+  min-height: 800px;
+  background-color: #252525;
+  border-radius: 50px;
+}
+
+#about-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+#about-wallpaper {
+  max-width: 1000px;
+  max-height: 600px
+}
+
+body {
+  background-image: url("../images/wallpaperflare.com_wallpaper.jpg");
+  background-repeat: no-repeat;
+}

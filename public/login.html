@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- 
+    Author: Reuben Goh
+    Admin num: P2205711
+    Class: DISM2A03
+   -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <!-- jquery ui -->
+  <link href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet">
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/69bb717c2f.js" crossorigin="anonymous"></script>
+  <!--Favicon-->
+  <link rel="icon" href="images/sp-games-logo.png" type="image/x-icon">
+  <script src="./js/general.js" defer></script>
+  <title>Login Page</title>
+  <script>
+    $(() => {
+      // check login status
+      $(document).ready(function () {
+        loginStatus(localStorage["jwt"]);
+      });
+
+      // ---------------------------------------------------------------------------
+      // handle submit button click
+      // login submit button
+      $("#login-form").on("submit", function (event) {
+        event.preventDefault();
+
+        // get user input
+        const username = $("#login-username").val();
+        const password = $("#login-password").val();
+
+        // api to login
+        var settings = {
+          "url": "http://localhost:8081/login",
+          "method": "POST",
+          "timeout": 0,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "data": JSON.stringify({
+            "username": username,
+            "password": password
+          }),
+        };
+
+        $.ajax(settings).done(function (response) {
+          // successful login
+          // store jwt in local storage
+          localStorage.setItem("jwt", response.token);
+
+          // remove any guest cart
+          sessionStorage.removeItem("cart");
+
+
+          // redirect to home page
+          window.location.href = "./index.html";
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+          alert(jqXHR.status + " " + jqXHR.responseJSON.error);
+          if (jqXHR.status == 401) {
+            window.location.href = "./login.html";
+          }
+
+          else if (jqXHR.status != 422) {
+            window.location.href = "./error/error" + jqXHR.status + ".html";
+          }
+        });
+      });
+
+      // signup submit button
+      $("#signup-form").on("submit", function (event) {
+        event.preventDefault();
+
+        // get user input
+        const username = $("#signup-username").val();
+        const email = $("#signup-email").val();
+        const password = $("#signup-password").val();
+        const profileurl = $("#signup-profileurl").val();
+
+        if (profileurl === "") {
+          var settings = {
+            "url": "http://localhost:8081/users",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "data": JSON.stringify({
+              "username": username,
+              "email": email,
+              "password": password,
+              "type": "Customer"
+            }),
+          };
+
+          $.ajax(settings).done(function (response) {
+            alert("Welcome to SP Games!, Please login to continue");
+
+            window.location.href = "./login.html";
+
+          }).fail(function (jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status === 422) {
+              alert(jqXHR.status + " " + jqXHR.responseJSON.error);
+              window.location.href = "./login.html";
+            }
+            else {
+              alert(jqXHR.status + " " + jqXHR.responseJSON.error);
+              window.location.href = "./error/error" + jqXHR.status + ".html";
+            }
+          });
+        }
+
+        else {
+          var settings = {
+            "url": "http://localhost:8081/users",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "data": JSON.stringify({
+              "username": username,
+              "email": email,
+              "password": password,
+              "type": "Customer",
+              "profile_pic_url": profileurl
+            }),
+          };
+
+          $.ajax(settings).done(function (response) {
+            alert("Welcome to SP Games!, Please login to continue");
+
+            window.location.href = "./login.html";
+
+          }).fail(function (jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status === 422) {
+              alert(jqXHR.status + " " + jqXHR.responseJSON.error);
+              window.location.href = "./login.html";
+            }
+            else {
+              alert(jqXHR.status + " " + jqXHR.responseJSON.error);
+              window.location.href = "./error/error" + jqXHR.status + ".html";
+            }
+          });
+        };
+      });
+    });
+  </script>
+  <link href="./css/login.css" rel="stylesheet">
+  <link href="./css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">
+        <img src="images/sp-games-logo.png" id="SPGLogo" alt="SPGLogo">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon bg-light"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 40px;">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="games.html">Games</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="review.html" id="review-games">Reviews</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              id="admin-tools">
+              Admin Tools
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="add-platform.html">Add Platform</a></li>
+              <li><a class="dropdown-item" href="add-games.html">Add Game</a></li>
+              <li><a class="dropdown-item" href="users.html">Edit User Data</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <form id="search-form">
+              <div class="input-group mb-3">
+                <input class="form-control ms-2" type="search" placeholder="Search games by name or filter by platform"
+                  aria-label="Search" id="search-game" disabled>
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+              </div>
+            </form>
+          </li>
+          <li class="nav-item">
+            <div class="ms-2 dropdown" style="height: 100%;">
+              <button class="btn btn-danger dropdown-toggle disabled" type="button" data-bs-toggle="dropdown"
+                style="height: 100%;" id="filter-platform">
+                Filter
+              </button>
+              <ul class="dropdown-menu bg-dark" id="filter-dropdown">
+                <!-- populate with all platforms from db -->
+                <li class="ms-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="platform" id="platform-All" checked>
+                    <label class="form-check-label game-platforms" for="platform-All">All</label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 40px;">
+          <li>
+            <div class="nav-item">
+              <a href="./cart.html" class="nav-link me-2" id="cart">
+                <i class="fa-solid fa-shopping-cart fa-lg"></i><span class="badge badge-light"
+                  id="num-cart-items"></span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="nav-item">
+              <a href="profile.html" class="nav-link me-2" id="logged-in-user">
+                <i class="fa-solid fa-user"></i>
+                <!-- <i class="bi bi-person-circle align-self-center"></i> Profile -->
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="login-dropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="login-dropdown">
+                <li><a class="dropdown-item" href="login.html">Login</a></li>
+                <li><a class="dropdown-item" href="login.html">Sign Up</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="section">
+    <div class="container">
+      <div class="row full-height justify-content-center">
+
+        <div class="col-12 text-center align-self-center py-5">
+          <div class="section pb-5 pt-5 pt-sm-2 text-center">
+
+            <h3 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h3>
+            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+            <label for="reg-log" class="bi"></label>
+            <div class="card-3d-wrap mx-auto">
+              <div class="card-3d-wrapper">
+                <div class="card-front">
+                  <div class="center-wrap">
+
+                    <div class="section text-center" id="inputForm">
+                      <h4 class="mb-4 pb-3">Log In</h4>
+
+                      <form id="login-form">
+                        <div class="form-group">
+                          <input type="text" name="username" class="form-style form-control" placeholder="Username"
+                            id="login-username" autocomplete="off" required>
+                          <i class="input-icon fa-solid fa-user"></i>
+                        </div>
+
+                        <div class="form-group mt-2">
+                          <input type="password" name="password" class="form-style form-control" placeholder="Password"
+                            id="login-password" autocomplete="off" required>
+                          <i class="input-icon fa-solid fa-lock"></i>
+                        </div>
+
+                        <button type="submit" class="btn mt-4 form-btn" id="submit-login">submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-back">
+                  <div class="center-wrap">
+                    <div class="section text-center">
+
+                      <h4 class="mb-4 pb-3">Sign Up</h4>
+                      <form id="signup-form">
+
+                        <div class="form-group mt-2">
+                          <input type="text" name="signup-username" class="form-style form-control"
+                            placeholder="Username" id="signup-username" autocomplete="off" required>
+                          <i class="input-icon fa-solid fa-user"></i>
+                        </div>
+
+                        <div class="form-group mt-2">
+                          <input type="email" name="signup-email" class="form-style form-control" placeholder="Email"
+                            id="signup-email" autocomplete="off" required>
+                          <i class="input-icon fa-solid fa-at"></i>
+                        </div>
+
+                        <div class="form-group mt-2">
+                          <input type="password" name="signup-password" class="form-style form-control"
+                            placeholder="Password" id="signup-password" autocomplete="off" required>
+                          <i class="input-icon fa-solid fa-lock"></i>
+                        </div>
+
+                        <div class="form-group mt-2">
+                          <input type="url" name="signup-profileurl" class="form-style form-control"
+                            placeholder="Profile picture URL (optional)" id="signup-profileurl" autocomplete="off">
+                          <i class="input-icon fa-solid fa-hashtag"></i>
+                        </div>
+
+                        <button type="submit" class="btn mt-4 form-btn" id="submit-signup">submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

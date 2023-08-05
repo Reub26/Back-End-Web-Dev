@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- 
+    Author: Reuben Goh
+    Admin num: P2205711
+    Class: DISM2A03
+   -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <!-- jquery ui -->
+  <link href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet">
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/825a35d965.js" crossorigin="anonymous"></script>
+  <!--Favicon-->
+  <link rel="icon" href="images/sp-games-logo.png" type="image/x-icon">
+  <!-- other js scripts -->
+  <script src="./js/general.js" defer></script>
+  <title>Game Store</title>
+  <script>
+    $(() => {
+      $(document).ready(function () {
+        loginStatus(localStorage["jwt"])
+      });
+
+      // shows all games on webpage with their respective image and platform and categories
+      var settings = {
+        "url": "http://localhost:8081/game/platform/category",
+        "method": "GET",
+        "timeout": 0,
+      };
+
+      $.ajax(settings).done(function (allGames) {
+        let gameContainer = $("#game-container");
+
+        let gameTitleArr = [];
+        $.each(allGames, function (index, game) {
+          // array to store all game titles to be used for search box autocomplete
+          if (!gameTitleArr.includes(game.title)) {
+            gameTitleArr.push(game.title);
+          }
+
+          let gameCard = $('<div class="card col-md-4 col-12"></div>').attr("id", "game-id" + game.game_id + "-" + game.platform_name);
+          let flipCard = $('<div></div>').attr("class", "flip-card");
+          let innerFlip = $('<div></div>').attr("class", "flip-card-inner");
+
+          // ----------------------------------
+          // front of card
+          let flipFront = $('<div></div>').attr("class", "flip-card-front");
+          // let gameImage = $('<img class="game-image" src="' + 'gameImage/' + game.img_name + '">');
+          let gameImage = $('<img class="game-image">').attr("src", "gameImage/" + game.img_name);
+          let gameTitle = $('<h3 class="text-center mb-3 text-truncate"></h3>').text(game.title);
+          let platform = $('<div class="platform mb-3">' + '<i class="' + game.platform_icon + ' fa-beat fa-2xl mt-2" style="color: #ffffff;"></i>' + '</div>')
+
+          // ratings
+          let ratingWrapper = $('<div class="d-flex mb-2 align-items-center justify-content-center" id="ratings"></div>');
+          let checkedStar = $('<div><i class="fa-solid fa-star fa-lg me-2" style="color: #ffff00;"></i></div>');
+          let uncheckedStar = $('<div><i class="fa-regular fa-star fa-lg me-2" style="color: #ffff00;"></i></div>');
+
+          // get avg ratings of featured game
+          specificGameAvgRatings(game.game_id).then(avgRatings => {
+            if (avgRatings === null) {
+              for (let i = 0; i < 5; i++) {
+                ratingWrapper.append(uncheckedStar.clone(true));
+              }
+            }
+            else {
+              for (let i = 0; i < 5; i++) {
+                // console.log(avgRatings)
+                if (avgRatings > 0) {
+                  ratingWrapper.append(checkedStar.clone(true));
+                }
+
+                else {
+                  ratingWrapper.append(uncheckedStar.clone(true));
+                }
+
+                avgRatings--;
+              }
+            }
+          }).catch(error => {
+            const errorStatus = error.slice(0, 3);
+            alert(error);
+            if (errorStatus != 422) {
+              window.location.href = "./error/error" + errorStatus + ".html";
+            }
+          });
+
+
+          // ----------------------------------
+          // back of card
+          let flipBack = $('<div></div>').attr("class", "flip-card-back");
+          let price = $('<h5 class="mb-3 align-items-center"></h4>').text("Price: S$" + game.price);
+          let gameYear = $('<p></p>').text("Year released: " + game.year);
+
+          let good = $('<i class="fa-regular fa-thumbs-up fa-lg ms-2" style="color: #ffeba7;"></i>');
+          let bad = $('<i class="fa-regular fa-thumbs-down fa-lg ms-2" style="color: #ffeba7;"></i>');
+          let totalVotes = $('<p></p>').text("Total votes: " + game.total_votes);
+          if (game.total_votes < 0) {
+            totalVotes.append(bad);
+          }
+          else {
+            totalVotes.append(good);
+          }
+          // likeGameButton = $('<button type="button" class="btn btn-outline-danger like-game"></button>').text("Like");
+          // let detailsButton = $('<button class="btn btn-primary">Details</button>');
+          let detailsButton = $('<button type="button" class="btn btn-danger game-details mt-5 mb-2"></button>').text("Details");
+          detailsButton.attr("id", "details-" + game.game_id + "-" + game.platform_name);
+
+          let addToCart = $('<button class="btn btn-danger cart" id="cart-' + game.game_id + "-" + game.platform_id + '"></button>').text("Add to Cart ");
+          let cartIcon = $('<i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>');
+          addToCart.append(cartIcon);
+
+          // append for html
+          let gameTitleFront = gameTitle.clone(true);
+
+          // front of card
+          flipFront.append(gameImage, gameTitleFront, platform, ratingWrapper);
+
+          // back of card
+          // flipBack.append(gameTitle, gameYear, likeGameButton, detailsButton);
+          flipBack.append(gameTitle, price, gameYear, totalVotes, detailsButton, addToCart);
+
+          // final append
+          innerFlip.append(flipFront, flipBack);
+          flipCard.append(innerFlip);
+          gameCard.append(flipCard);
+
+          gameContainer.append(gameCard);
+        });
+
+        // ---------------------------------------------------------------------------
+        // get all existing platforms (use for "filter" dropdown in search bar)
+        var settings = {
+          "url": "http://localhost:8081/platform",
+          "method": "GET",
+          "timeout": 0,
+        };
+
+        $.ajax(settings).done(function (allPlatform) {
+          // console.log(allPlatform);
+
+          // push all platform names into array to be used for search box also
+          let platformArr = [];
+          $.each(allPlatform, function (index, platform) {
+            platformArr.push(platform.platform_name);
+          });
+
+
+          // set up filter dropdown to only autocomplete search bar of specific platform
+          // populate filter dropdown with all platforms
+          let filterDropdown = $("#filter-dropdown");
+          $.each(platformArr, function (index, platform) {
+            let platformItem = $('<li class="ms-2"></li>');
+            let platformInput = $('<div class="form-check"></div>');
+            let platformRadio = $('<input class="form-check-input" type="radio" name="platform" id="platform-' + (platform) + '">');
+            let platformLabel = $('<label class="form-check-label game-platforms" for="platform-' + (platform) + '"></label>').text(platform);
+
+            platformInput.append(platformRadio, platformLabel);
+            platformItem.append(platformInput);
+            filterDropdown.append(platformItem);
+          });
+
+          // filter dropdown on change and search bar on input
+          $(document).ready(function () {
+            $("#filter-searchbar input[type='radio']").on("change", function () {
+              const selectedPlatform = $("input[name='platform']:checked").attr("id");
+
+              // change what is shown on webpage based on filter dropdown
+              // if filter is "All", then autocomplete search bar with all game titles
+              if (selectedPlatform.replace("platform-", "") === "All") {
+                $("#search-game").autocomplete({
+                  source: gameTitleArr
+                });
+
+                // show all games
+                $.each(allGames, function (index, game) {
+                  $("#game-id" + game.game_id + "-" + game.platform_name).attr("class", "card col-md-4 col-12");
+                });
+              }
+
+              // else, autocomplete search bar with game titles of specific platform
+              else {
+                $.each(allGames, function (index, game) {
+                  if (selectedPlatform.replace("platform-", "") === game.platform_name) {
+                    $("#game-id" + game.game_id + "-" + game.platform_name).attr("class", "card col-md-4 col-12");
+                  }
+
+                  else {
+                    $("#game-id" + game.game_id + "-" + game.platform_name).attr("class", "d-none");
+                  }
+                });
+
+
+                // get games based on platform
+                var settings = {
+                  "url": "http://localhost:8081/game/" + selectedPlatform.replace("platform-", ""),
+                  "method": "GET",
+                  "timeout": 0,
+                };
+
+                $.ajax(settings).done(function (filteredGames) {
+                  let filteredGameTitleArr = [];
+
+                  $.each(filteredGames, function (index, game) {
+                    if (!filteredGameTitleArr.includes(game.title)) {
+                      filteredGameTitleArr.push(game.title);
+                    }
+                  });
+
+                  $("#search-game").autocomplete({
+                    source: filteredGameTitleArr
+                  });
+
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                  alert(jqXHR.status + " " + jqXHR.responseJSON.error);
+                  if (jqXHR.status != 422) {
+                    window.location.href = "./error/error" + jqXHR.status + ".html";
+                  }
+                });
+              }
+            });
+          });
+
+
+          // ---------------------------------------------------------------------------
+          // setting auto complete suggestions for search box
+          $("#search-game").autocomplete({
+            source: gameTitleArr
+          });
+
+          // search bar (requires to be inside ajax function since "gameTitleArr" is only available inside ajax function)
+          $("#search-form").on("submit", function (event) {
+            // Prevent form submission
+            event.preventDefault();
+            const selectedPlatform = $("input[name='platform']:checked").attr("id");
+
+            const searchGameValue = $("#search-game").val();
+
+            // change what is shown on webpage based on search bar input
+            $.each(allGames, function (index, game) {
+              if (game.title.toLowerCase().includes(searchGameValue.toLowerCase()) && selectedPlatform.replace("platform-", "") === "All") {
+                $("#game-id" + game.game_id + "-" + game.platform_name).attr("class", "card col-md-4 col-12");
+              }
+
+              else if (game.title.toLowerCase().includes(searchGameValue.toLowerCase()) && selectedPlatform.replace("platform-", "") === game.platform_name) {
+                $("#game-id" + game.game_id + "-" + game.platform_name).attr("class", "card col-md-4 col-12");
+              }
+
+              else {
+                $("#game-id" + game.game_id + "-" + game.platform_name).attr("class", "d-none");
+              }
+            });
+            // window.location.href = "./game-details.html"
+            // $("#game-id5").attr("class", "d-none");
+          });
+
+          // check if redirected from homepage search bar
+          if ((sessionStorage["search-game"] != null) && (sessionStorage["search-game"] != "") && (sessionStorage["search-platform"] != null)) {
+            $("#search-game").val(sessionStorage["search-game"]);
+            $("#platform-" + sessionStorage["search-platform"]).prop("checked", true);
+            $("#search-form").submit();
+            // clear session storage after sumbit to prevent future redirections
+            sessionStorage.removeItem("search-game");
+            sessionStorage.removeItem("search-platform");
+          }
+
+          // check if redirected from homepage add to cart button
+          if (sessionStorage["cart-search"] != null) {
+            $("#search-game").val(sessionStorage["cart-search"]);
+            $("#search-form").submit();
+            // clear session storage after sumbit to prevent future redirections
+            sessionStorage.removeItem("cart-search");
+          }
+
+          // check if redirected from homepage details button
+          if (sessionStorage["search-game-details"] != null) {
+            $("#search-game").val(sessionStorage["search-game-details"]);
+            $("#search-form").submit();
+            // clear session storage after sumbit to prevent future redirections
+            sessionStorage.removeItem("search-game-details");
+          }
+
+          // check if redirected from homepage featured game platform button
+          if ((sessionStorage["featured-game-platform-btn"] != null) && (sessionStorage["featured-game-btn"] != null)) {
+            $("#platform-" + sessionStorage["featured-game-platform-btn"]).prop("checked", true);
+            $("#search-game").val(sessionStorage["featured-game-btn"]);
+            $("#search-form").submit();
+            // clear session storage after sumbit to prevent future redirections
+            sessionStorage.removeItem("featured-game-platform-btn");
+            sessionStorage.removeItem("featured-game-btn");
+          }
+
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+          alert(jqXHR.status + " " + jqXHR.responseJSON.error);
+          if (jqXHR.status != 422) {
+            window.location.href = "./error/error" + jqXHR.status + ".html";
+          }
+        });
+
+        $(".game-details").on("click", function () {
+          const gameId = $(this).attr("id").replace("details-", "").split("-")[0];
+          const platform = $(this).attr("id").replace("details-", "").split("-")[1];
+
+          window.location.href = "./game-details.html?gameId=" + gameId + "&platform=" + platform;
+        });
+
+        // handle cart button for featured game and top3 games
+        // cart for non-logged in users
+        if (!localStorage["jwt"]) {
+          $(document).ready(function () {
+            $(".cart").click(function () {
+              // save cart data to session storage
+              const cartId = $(this).attr("id");
+              const gameId = Number(cartId.split("-")[1]);
+              const platformId = Number(cartId.split("-")[2]);
+              const quantity = 1; // default quantity is 1
+
+              // ==================== ADD TO CART (on session storage) ====================
+              // check if any cart data
+              // there already is game data, hence push to array instead
+              if (sessionStorage["cart"] != undefined) {
+                let cartData = sessionStorage["cart"];
+                cartData = JSON.parse(cartData);
+
+                // check if game already exists in cart
+                var gameExists = false;
+                for (let i = 0; i < cartData.length; i++) {
+                  if ((cartData[i].game_id === gameId) && (cartData[i].platform_id === platformId)) {
+                    gameExists = true;
+                    cartData[i].quantity += quantity;
+
+                    // update session storage
+                    sessionStorage.setItem("cart", JSON.stringify(cartData));
+                    break;
+                  }
+                }
+
+                // game does not exist in cart, hence make new entry
+                if (!gameExists) {
+                  cartData.push({
+                    cart_id: cartData.length + 1,
+                    game_id: gameId,
+                    platform_id: platformId,
+                    quantity: quantity
+                  });
+                  sessionStorage.setItem("cart", JSON.stringify(cartData));
+                }
+              }
+
+              // there is no item in cart, hence create new array
+              else {
+                // set cart data to session storage
+                const cartData = [{
+                  cart_id: 1,
+                  game_id: gameId,
+                  platform_id: platformId,
+                  quantity: quantity
+                }]
+                sessionStorage.setItem("cart", JSON.stringify(cartData));
+              }
+
+              window.location.reload();
+            });
+          });
+        }
+
+        // cart for logged in users
+        else {
+          $(document).ready(function () {
+            $(".cart").click(function () {
+              const cartId = $(this).attr("id");
+              const gameId = Number(cartId.split("-")[1]);
+              const platformId = Number(cartId.split("-")[2]);
+
+              // ==================== ADD TO CART ====================
+              gameDetailsFromId(gameId).then(async gameDetails => {
+                // get user cart data (if any)
+                const userCartData = await getUserCartData(localStorage["jwt"]);
+
+                // check if any cart data
+                if (userCartData === null) {
+                  // no cart data, hence use post api to create new cart
+                  var settings = {
+                    "url": "http://localhost:8081/cart",
+                    "method": "POST",
+                    "timeout": 0,
+                    "headers": {
+                      "Content-Type": "application/json",
+                      "Authorization": "Bearer " + localStorage["jwt"]
+                    },
+                    "data": JSON.stringify({
+                      "game_id": gameId,
+                      "quantity": 1, // default quantity is 1
+                      "platform_id": platformId
+                    }),
+                  };
+
+                  $.ajax(settings).done(function (response) {
+                    // blank response cuz no need show anything
+                    window.location.reload();
+
+                    // handle error for create cart
+                  }).fail(function (jqXHR, textStatus, errorThrown) {
+                    alert(jqXHR.status + " " + jqXHR.responseJSON.error);
+                    if (jqXHR.status != 422) {
+                      window.location.href = "./error/error" + jqXHR.status + ".html";
+                    }
+                  });
+                }
+
+                else {
+                  // there is cart data, hence use put api to update cart
+                  // get quantity of game in cart to increment quantity
+                  let quantity;
+
+                  // check if cart exist but no items inside
+                  if (userCartData[0].cart_data_id === null) {
+                    quantity = [{ quantity: 0 }];
+                  }
+
+                  // cart exists with items inside
+                  else {
+                    // get quantity of game in cart to increment quantity (if any)
+                    quantity = userCartData.filter(cart => Number(cart.game_id) === Number(gameId) && Number(cart.platform_id) === Number(platformId));
+
+                    // check if game does not exist in cart
+                    if (quantity.length === 0) {
+                      quantity = [{ quantity: 0 }];
+                    }
+                  }
+
+
+                  var settings = {
+                    "url": "http://localhost:8081/cart/" + userCartData[0].cart_id,
+                    "method": "PUT",
+                    "timeout": 0,
+                    "headers": {
+                      "Content-Type": "application/json",
+                      "Authorization": "Bearer " + localStorage["jwt"]
+                    },
+                    "data": JSON.stringify({
+                      "game_id": gameId,
+                      "platform_id": platformId,
+                      "quantity": 1 + Number(quantity[0].quantity) // default quantity is 1
+                    }),
+                  };
+
+                  $.ajax(settings).done(function (response) {
+                    window.location.reload();
+
+                    // handle error for update cart
+                  }).fail(function (jqXHR, textStatus, errorThrown) {
+                    alert(jqXHR.status + " " + jqXHR.responseJSON.error);
+                    if (jqXHR.status != 422) {
+                      window.location.href = "./error/error" + jqXHR.status + ".html";
+                    }
+                  });
+                }
+
+              }).catch(error => {
+                const errorStatus = error.slice(0, 3);
+                alert(error);
+                if (errorStatus != 422) {
+                  window.location.href = "./error/error" + errorStatus + ".html";
+                }
+              });
+            });
+          });
+        }
+      });
+
+    });
+  </script>
+  <link href="./css/games.css" rel="stylesheet">
+  <link href="./css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">
+        <img src="images/sp-games-logo.png" id="SPGLogo" alt="SPGLogo">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon bg-light"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 40px;">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="games.html">Games</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="review.html" id="review-games">Reviews</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              id="admin-tools">
+              Admin Tools
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="add-platform.html">Add Platform</a></li>
+              <li><a class="dropdown-item" href="add-games.html">Add Game</a></li>
+              <li><a class="dropdown-item" href="users.html">Edit User Data</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <form id="search-form">
+              <div class="input-group mb-3">
+                <input class="form-control ms-2" type="search" placeholder="Search games by name or filter by platform"
+                  aria-label="Search" id="search-game">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+              </div>
+            </form>
+          </li>
+          <li class="nav-item">
+            <div class="ms-2 dropdown" style="height: 100%;" id="filter-searchbar">
+              <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                style="height: 100%;" id="filter-platform">
+                Filter
+              </button>
+              <ul class="dropdown-menu bg-dark" id="filter-dropdown">
+                <!-- populate with all platforms from db -->
+                <li class="ms-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="platform" id="platform-All" checked>
+                    <label class="form-check-label game-platforms" for="platform-All">All</label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 40px;">
+          <li>
+            <div class="nav-item">
+              <a href="./cart.html" class="nav-link me-2" id="cart">
+                <i class="fa-solid fa-shopping-cart fa-lg"></i><span class="badge badge-light"
+                  id="num-cart-items"></span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="nav-item">
+              <a href="profile.html" class="nav-link me-2" id="logged-in-user">
+                <i class="fa-solid fa-user"></i>
+                <!-- <i class="bi bi-person-circle align-self-center"></i> Profile -->
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="login-dropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="login-dropdown">
+                <li><a class="dropdown-item" href="login.html">Login</a></li>
+                <li><a class="dropdown-item" href="login.html">Sign Up</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h1 class="text-center mt-3 mb-5">Welcome to SP-Games</h1>
+
+  <div class="container">
+    <div class="row" id="game-container">
+      <!-- <div class="card d-flex col-md-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img class="game-image" src="gameImage/1688906681819-clashOfClans.jpeg">
+              <h3 class="game-title text-center">Clash of Clans</h3>
+            </div>
+            <div class="flip-card-back">
+              <h1>John Doe</h1>
+              <p>Architect & Engineer</p>
+              <p>We love that guy</p>
+              <button class="btn btn-primary">Details</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
