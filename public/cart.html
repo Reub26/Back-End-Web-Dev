@@ -890,6 +890,18 @@
 
                 // get current cart data
                 const cartData = await getUserCartData(localStorage["jwt"]);
+
+                // get card details if any
+                var cardDetailssettings = {
+                  "url": "http://localhost:8081/card",
+                  "method": "GET",
+                  "timeout": 0,
+                  "headers": {
+                    "Authorization": "Bearer " + localStorage["jwt"],
+                  },
+                };
+                const cardDetails = await $.ajax(cardDetailssettings);
+                
                 // confirmation
                 const confirmation = "Are you sure you want to checkout?"
 
@@ -933,6 +945,24 @@
                         if (jqXHR.status != 422) {
                           window.location.href = "./error/error" + jqXHR.status + ".html";
                         }
+                      });
+                    }
+
+                    // save card info checkbox is unchecked
+                    else if ($("#save-card").prop("checked") == false && cardDetails.length > 0) {
+                      // delete card info from db
+                      var settings = {
+                        "url": "http://localhost:8081/card",
+                        "method": "DELETE",
+                        "timeout": 0,
+                        "headers": {
+                          "Authorization": "Bearer " + localStorage["jwt"]
+                        },
+                      };
+
+                      $.ajax(settings).done(function (response) {
+                        alert("Checkout successful! Redirecting to homepage...");
+                        window.location.href = "./index.html";
                       });
                     }
 
