@@ -1,0 +1,15 @@
+#game-container {
+  margin-top: 20px;
+  min-height: 1080px;
+  background-color: #252525;
+  border-radius: 50px;
+  padding-bottom: 20px;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  background-color: rgba(0, 0, 0, 0.2);
+}

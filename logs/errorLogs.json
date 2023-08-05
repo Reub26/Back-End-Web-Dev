@@ -1,0 +1,1405 @@
+[
+  {
+    "timeStamp": "Getting_users-1688906505290",
+    "error_string": "Error: Table 'sp_games.user' doesn't exist",
+    "error_obj": {
+      "code": "ER_NO_SUCH_TABLE",
+      "errno": 1146,
+      "sqlState": "42S02",
+      "sqlMessage": "Table 'sp_games.user' doesn't exist",
+      "sql": "SELECT * FROM user WHERE username = 'dexter' AND password = 12345"
+    }
+  },
+  {
+    "timeStamp": "Getting_users-1688906549735",
+    "error_string": "Error: Table 'sp_games.user' doesn't exist",
+    "error_obj": {
+      "code": "ER_NO_SUCH_TABLE",
+      "errno": 1146,
+      "sqlState": "42S02",
+      "sqlMessage": "Table 'sp_games.user' doesn't exist",
+      "sql": "SELECT * FROM user WHERE username = 'Jenny' AND password = 'xyz123'"
+    }
+  },
+  {
+    "timeStamp": "Getting_current_user-1689039768580",
+    "error_string": "TypeError: gameFunc.getUserById is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_all_games-1689575607695",
+    "error_string": "TypeError: gameFunc.getAllGames is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_all_games-1689575655807",
+    "error_string": "TypeError: gameFunc.getAllGames is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_all_games-1689575657511",
+    "error_string": "TypeError: gameFunc.getAllGames is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_all_games-1689575718611",
+    "error_string": "TypeError: gameFunc.getAllGames is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_all_games-1689575922874",
+    "error_string": "TypeError: gameFunc.getAllGames is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_all_games-1689576120840",
+    "error_string": "TypeError: gameFunc.getAllGames is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_all_games-1689576124805",
+    "error_string": "TypeError: gameFunc.getAllGames is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_all_games-1689604526861",
+    "error_string": "ReferenceError: result is not defined",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_all_games-1689604788184",
+    "error_string": "RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: [\n  [Object], [Object],\n  [Object], [Object],\n  [Object], [Object],\n  [Object], [Object]\n]",
+    "error_obj": {
+      "code": "ERR_HTTP_INVALID_STATUS_CODE"
+    }
+  },
+  {
+    "timeStamp": "Getting_all_games-1689604812832",
+    "error_string": "RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 9",
+    "error_obj": {
+      "code": "ERR_HTTP_INVALID_STATUS_CODE"
+    }
+  },
+  {
+    "timeStamp": "Getting_all_games-1689604853380",
+    "error_string": "RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 9",
+    "error_obj": {
+      "code": "ERR_HTTP_INVALID_STATUS_CODE"
+    }
+  },
+  {
+    "timeStamp": "Getting_all_games-1689605037920",
+    "error_string": "RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 9",
+    "error_obj": {
+      "code": "ERR_HTTP_INVALID_STATUS_CODE"
+    }
+  },
+  {
+    "timeStamp": "Getting_all_games-1689605053678",
+    "error_string": "RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 9",
+    "error_obj": {
+      "code": "ERR_HTTP_INVALID_STATUS_CODE"
+    }
+  },
+  {
+    "timeStamp": "Getting_all_games-1689605080884",
+    "error_string": "TypeError: allGamesCat.append is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_all_games-1689605826622",
+    "error_string": "ReferenceError: combinedArray is not defined",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1689917950948",
+    "error_string": "TypeError: gameCat.filter is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1689918099048",
+    "error_string": "TypeError: gameCat.filter is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1689918115687",
+    "error_string": "TypeError: gameCat.filter is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1689918218503",
+    "error_string": "TypeError: gameCat.filter is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690175746855",
+    "error_string": "Error: Truncated incorrect DOUBLE value: '2-Mobile'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: '2-Mobile'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 3 WHERE (`game_id` = '2-Mobile');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690175880125",
+    "error_string": "Error: Truncated incorrect DOUBLE value: '2-Mobile'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: '2-Mobile'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 3 WHERE (`game_id` = '2-Mobile');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690175950534",
+    "error_string": "Error: Truncated incorrect DOUBLE value: '2-Mobile'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: '2-Mobile'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 3 WHERE (`game_id` = '2-Mobile');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690187561735",
+    "error_string": "Error: Truncated incorrect DOUBLE value: '6-Windows'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: '6-Windows'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = '6-Windows');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690187645530",
+    "error_string": "Error: Truncated incorrect DOUBLE value: '1-Windows'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: '1-Windows'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = -1 WHERE (`game_id` = '1-Windows');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690187653189",
+    "error_string": "Error: Truncated incorrect DOUBLE value: '2-Mobile'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: '2-Mobile'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 3 WHERE (`game_id` = '2-Mobile');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id_with_platform-1690289816249",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Creating_platform-1690382219887",
+    "error_string": "Error: Column 'platform_icon' cannot be null",
+    "error_obj": {
+      "code": "ER_BAD_NULL_ERROR",
+      "errno": 1048,
+      "sqlState": "23000",
+      "sqlMessage": "Column 'platform_icon' cannot be null",
+      "sql": "INSERT INTO `sp_games`.`platform` (`platform_name`, `description`, `platform_icon`) VALUES ('Nintendo', 'nintendo', NULL);"
+    }
+  },
+  {
+    "timeStamp": "Creating_platform-1690382640313",
+    "error_string": "TypeError: Cannot read properties of undefined (reading 'constructor')",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Creating_platform-1690382715013",
+    "error_string": "TypeError: Cannot read properties of undefined (reading 'constructor')",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Creating_platform-1690383900382",
+    "error_string": "Error: Duplicate entry 'ubuntu' for key 'platform.platform_name_UNIQUE'",
+    "error_obj": {
+      "code": "ER_DUP_ENTRY",
+      "errno": 1062,
+      "sqlState": "23000",
+      "sqlMessage": "Duplicate entry 'ubuntu' for key 'platform.platform_name_UNIQUE'",
+      "sql": "INSERT INTO `sp_games`.`platform` (`platform_name`, `description`) VALUES ('ubuntu', 'ubuntu os');"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690455491415",
+    "error_string": "Error: Column 'img_name' cannot be null",
+    "error_obj": {
+      "code": "ER_BAD_NULL_ERROR",
+      "errno": 1048,
+      "sqlState": "23000",
+      "sqlMessage": "Column 'img_name' cannot be null",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`, `img_name`) VALUES ('Overwatch', 'Overwatch is a multimedia franchise centered on a series of online multiplayer first-person shooter (FPS) video games developed by Blizzard Entertainment', '2016', NULL);"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690455590555",
+    "error_string": "Error: Column 'img_name' cannot be null",
+    "error_obj": {
+      "code": "ER_BAD_NULL_ERROR",
+      "errno": 1048,
+      "sqlState": "23000",
+      "sqlMessage": "Column 'img_name' cannot be null",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`, `img_name`) VALUES ('asd', 'asd', '1', NULL);"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690455619444",
+    "error_string": "Error: Column 'img_name' cannot be null",
+    "error_obj": {
+      "code": "ER_BAD_NULL_ERROR",
+      "errno": 1048,
+      "sqlState": "23000",
+      "sqlMessage": "Column 'img_name' cannot be null",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`, `img_name`) VALUES ('SD', 'ASD', '1', NULL);"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690455634706",
+    "error_string": "Error: Incorrect integer value: 'asd' for column 'year' at row 1",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD",
+      "errno": 1366,
+      "sqlState": "HY000",
+      "sqlMessage": "Incorrect integer value: 'asd' for column 'year' at row 1",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`, `img_name`) VALUES ('1', 'asd', 'asd', NULL);"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690455647425",
+    "error_string": "Error: Column 'img_name' cannot be null",
+    "error_obj": {
+      "code": "ER_BAD_NULL_ERROR",
+      "errno": 1048,
+      "sqlState": "23000",
+      "sqlMessage": "Column 'img_name' cannot be null",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`, `img_name`) VALUES ('asd', 'asd', '1', NULL);"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690455673307",
+    "error_string": "Error: Column 'img_name' cannot be null",
+    "error_obj": {
+      "code": "ER_BAD_NULL_ERROR",
+      "errno": 1048,
+      "sqlState": "23000",
+      "sqlMessage": "Column 'img_name' cannot be null",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`, `img_name`) VALUES ('asd', 'asd', '1', NULL);"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690455706954",
+    "error_string": "Error: Incorrect integer value: 'as' for column 'year' at row 1",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD",
+      "errno": 1366,
+      "sqlState": "HY000",
+      "sqlMessage": "Incorrect integer value: 'as' for column 'year' at row 1",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`, `img_name`) VALUES ('sd', 'asd', 'as', NULL);"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690455730160",
+    "error_string": "Error: Column 'img_name' cannot be null",
+    "error_obj": {
+      "code": "ER_BAD_NULL_ERROR",
+      "errno": 1048,
+      "sqlState": "23000",
+      "sqlMessage": "Column 'img_name' cannot be null",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`, `img_name`) VALUES ('asd', 'asd', '1', NULL);"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690455747652",
+    "error_string": "Error: Incorrect integer value: 'asd' for column 'year' at row 1",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD",
+      "errno": 1366,
+      "sqlState": "HY000",
+      "sqlMessage": "Incorrect integer value: 'asd' for column 'year' at row 1",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`, `img_name`) VALUES ('asd', 'asd', 'asd', NULL);"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690455765276",
+    "error_string": "Error: Incorrect integer value: 'sdf' for column 'year' at row 1",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD",
+      "errno": 1366,
+      "sqlState": "HY000",
+      "sqlMessage": "Incorrect integer value: 'sdf' for column 'year' at row 1",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`, `img_name`) VALUES ('d', 'sdf', 'sdf', NULL);"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690455941364",
+    "error_string": "Error: Column 'img_name' cannot be null",
+    "error_obj": {
+      "code": "ER_BAD_NULL_ERROR",
+      "errno": 1048,
+      "sqlState": "23000",
+      "sqlMessage": "Column 'img_name' cannot be null",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`, `img_name`) VALUES ('overwatch', 'Overwatch is a multimedia franchise centered on a series of online multiplayer first-person shooter (FPS) video games developed by Blizzard Entertainment', '2016', NULL);"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690456299496",
+    "error_string": "TypeError: Cannot read properties of undefined (reading 'img_name')",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Creating_new_game-1690456343748",
+    "error_string": "TypeError: Cannot read properties of undefined (reading 'img_name')",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Creating_new_game-1690456377336",
+    "error_string": "TypeError: Cannot read properties of undefined (reading 'img_name')",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Creating_new_game-1690456478539",
+    "error_string": "TypeError: Cannot read properties of undefined (reading 'img_name')",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Creating_new_game-1690456520577",
+    "error_string": "TypeError: Cannot read properties of undefined (reading 'img_name')",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Creating_new_game-1690456698836",
+    "error_string": "Error: Table 'sp_games.sp_games' doesn't exist",
+    "error_obj": {
+      "code": "ER_NO_SUCH_TABLE",
+      "errno": 1146,
+      "sqlState": "42S02",
+      "sqlMessage": "Table 'sp_games.sp_games' doesn't exist",
+      "sql": "INSERT INTO `sp_games` (`title`, `description`, `year`) VALUES ('ad', 'sdf', '1');"
+    }
+  },
+  {
+    "timeStamp": "Creating_platform-1690456904631",
+    "error_string": "Error: Table 'sp_games.sp_games' doesn't exist",
+    "error_obj": {
+      "code": "ER_NO_SUCH_TABLE",
+      "errno": 1146,
+      "sqlState": "42S02",
+      "sqlMessage": "Table 'sp_games.sp_games' doesn't exist",
+      "sql": "INSERT INTO `sp_games` (`platform_name`, `description`) VALUES ('asd', 'asd');"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690458970406",
+    "error_string": "Error: Table 'sp_games.sp_games' doesn't exist",
+    "error_obj": {
+      "code": "ER_NO_SUCH_TABLE",
+      "errno": 1146,
+      "sqlState": "42S02",
+      "sqlMessage": "Table 'sp_games.sp_games' doesn't exist",
+      "sql": "INSERT INTO `sp_games` (`title`, `description`, `year`) VALUES ('asd', 'asd', '1');"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690459115584",
+    "error_string": "Error: Table 'sp_games.sp_games' doesn't exist",
+    "error_obj": {
+      "code": "ER_NO_SUCH_TABLE",
+      "errno": 1146,
+      "sqlState": "42S02",
+      "sqlMessage": "Table 'sp_games.sp_games' doesn't exist",
+      "sql": "INSERT INTO `sp_games` (`title`, `description`, `year`) VALUES ('asd', 'asd', '1');"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690459192642",
+    "error_string": "Error: Table 'sp_games.sp_games' doesn't exist",
+    "error_obj": {
+      "code": "ER_NO_SUCH_TABLE",
+      "errno": 1146,
+      "sqlState": "42S02",
+      "sqlMessage": "Table 'sp_games.sp_games' doesn't exist",
+      "sql": "INSERT INTO `sp_games` (`title`, `description`, `year`) VALUES ('asd', 'asd', '1');"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690459225000",
+    "error_string": "Error: Table 'sp_games.sp_games' doesn't exist",
+    "error_obj": {
+      "code": "ER_NO_SUCH_TABLE",
+      "errno": 1146,
+      "sqlState": "42S02",
+      "sqlMessage": "Table 'sp_games.sp_games' doesn't exist",
+      "sql": "INSERT INTO `sp_games` (`title`, `description`, `year`) VALUES ('asd', 'asd', '1');"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690459364192",
+    "error_string": "Error: Table 'sp_games.sp_games' doesn't exist",
+    "error_obj": {
+      "code": "ER_NO_SUCH_TABLE",
+      "errno": 1146,
+      "sqlState": "42S02",
+      "sqlMessage": "Table 'sp_games.sp_games' doesn't exist",
+      "sql": "INSERT INTO `sp_games` (`title`, `description`, `year`) VALUES ('asd', 'asd', '1');"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1690459405810",
+    "error_string": "Error: Table 'sp_games.sp_games' doesn't exist",
+    "error_obj": {
+      "code": "ER_NO_SUCH_TABLE",
+      "errno": 1146,
+      "sqlState": "42S02",
+      "sqlMessage": "Table 'sp_games.sp_games' doesn't exist",
+      "sql": "INSERT INTO `sp_games` (`title`, `description`, `year`) VALUES ('asd', 'asd', '1');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690520793113",
+    "error_string": "ReferenceError: data is not defined",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Adding_to_cart-1690564731130",
+    "error_string": "Error: Can't add new command when connection is in closed state",
+    "error_obj": {
+      "fatal": true
+    }
+  },
+  {
+    "timeStamp": "Adding_to_cart-1690569279566",
+    "error_string": "ReferenceError: cartFunc is not defined",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Adding_to_cart-1690571546184",
+    "error_string": "ReferenceError: gameExist is not defined",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Adding_to_cart-1690607385455",
+    "error_string": "ReferenceError: error is not defined",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Adding_to_cart-1690607486390",
+    "error_string": "Error: User already has a cart with checkout status of false, use update cart api instead",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Updating_cart-1690607512371",
+    "error_string": "Error: Column 'cart_id' cannot be null",
+    "error_obj": {
+      "code": "ER_BAD_NULL_ERROR",
+      "errno": 1048,
+      "sqlState": "23000",
+      "sqlMessage": "Column 'cart_id' cannot be null",
+      "sql": "INSERT INTO `sp_games`.`cart_data` (`game_id`, `quantity`,  `cart_id`) VALUES (3, 20, NULL);"
+    }
+  },
+  {
+    "timeStamp": "Updating_cart-1690607727847",
+    "error_string": "Error: Column 'cart_id' cannot be null",
+    "error_obj": {
+      "code": "ER_BAD_NULL_ERROR",
+      "errno": 1048,
+      "sqlState": "23000",
+      "sqlMessage": "Column 'cart_id' cannot be null",
+      "sql": "INSERT INTO `sp_games`.`cart_data` (`game_id`, `quantity`,  `cart_id`) VALUES (3, 20, NULL);"
+    }
+  },
+  {
+    "timeStamp": "Adding_to_cart-1690613852128",
+    "error_string": "Error: User already has a cart with checkout status of false, use update cart api instead",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Adding_to_cart-1690613866009",
+    "error_string": "Error: User already has a cart with checkout status of false, use update cart api instead",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690743337844",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Updating_user-1690900489233",
+    "error_string": "Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 1",
+    "error_obj": {
+      "code": "ER_PARSE_ERROR",
+      "errno": 1064,
+      "sqlState": "42000",
+      "sqlMessage": "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 1",
+      "sql": "UPDATE `sp_games`.`users` SET `username` = 'kiyoo', `email` = 'abc@xyz.com', `password` = 'abc123', `type` = 'Admin' WHERE (`user_id` = ?);"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id_with_platform-1690911400070",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id_with_platform-1690911400097",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id_with_platform-1690911400111",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id_with_platform-1690911692341",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id_with_platform-1690911692357",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id_with_platform-1690911692372",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id_with_platform-1690988754399",
+    "error_string": "Error: Unknown column 'NaN' in 'where clause'",
+    "error_obj": {
+      "code": "ER_BAD_FIELD_ERROR",
+      "errno": 1054,
+      "sqlState": "42S22",
+      "sqlMessage": "Unknown column 'NaN' in 'where clause'",
+      "sql": "SELECT g.*, plat.platform_name, plat.platform_id, p.price, p.price_id, plat.platform_icon FROM games g,    platform plat, prices p WHERE g.game_id = p.game_id AND plat.platform_id = p.platform_id AND g.game_id = '5' AND plat.platform_name = NaN;"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id_with_platform-1690988824041",
+    "error_string": "Error: Unknown column 'NaN' in 'where clause'",
+    "error_obj": {
+      "code": "ER_BAD_FIELD_ERROR",
+      "errno": 1054,
+      "sqlState": "42S22",
+      "sqlMessage": "Unknown column 'NaN' in 'where clause'",
+      "sql": "SELECT g.*, plat.platform_name, plat.platform_id, p.price, p.price_id, plat.platform_icon FROM games g,    platform plat, prices p WHERE g.game_id = p.game_id AND plat.platform_id = p.platform_id AND g.game_id = '2' AND plat.platform_name = NaN;"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id_with_platform-1690988962116",
+    "error_string": "Error: Unknown column 'NaN' in 'where clause'",
+    "error_obj": {
+      "code": "ER_BAD_FIELD_ERROR",
+      "errno": 1054,
+      "sqlState": "42S22",
+      "sqlMessage": "Unknown column 'NaN' in 'where clause'",
+      "sql": "SELECT g.*, plat.platform_name, plat.platform_id, p.price, p.price_id, plat.platform_icon FROM games g,    platform plat, prices p WHERE g.game_id = p.game_id AND plat.platform_id = p.platform_id AND g.game_id = '3' AND plat.platform_name = NaN;"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690993725228",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690993725244",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690993725263",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690993725277",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690993725292",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690993887258",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690993887273",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690993887288",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690993887300",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1690993887321",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Saving_card_details-1691000495897",
+    "error_string": "TypeError: gameFunc.addCard is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Saving_card_details-1691000515916",
+    "error_string": "Error: Field 'card_details_id' doesn't have a default value",
+    "error_obj": {
+      "code": "ER_NO_DEFAULT_FOR_FIELD",
+      "errno": 1364,
+      "sqlState": "HY000",
+      "sqlMessage": "Field 'card_details_id' doesn't have a default value",
+      "sql": "INSERT INTO `sp_games`.`card_details` (`user_id`, `card_num`, `card_name`, `card_expiry`) VALUES (1, 'jenny', 'jenny', '12/2023');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691078471502",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691078471531",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691078471556",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Updating_user-1691080453680",
+    "error_string": "Error: data and salt arguments required",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Creating_new_game-1691083881671",
+    "error_string": "ReferenceError: newGameData is not defined",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Creating_new_game-1691083972975",
+    "error_string": "ReferenceError: newGameData is not defined",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Creating_new_game-1691084130704",
+    "error_string": "Error: Duplicate entry 'Growtopia' for key 'games.title_UNIQUE'",
+    "error_obj": {
+      "code": "ER_DUP_ENTRY",
+      "errno": 1062,
+      "sqlState": "23000",
+      "sqlMessage": "Duplicate entry 'Growtopia' for key 'games.title_UNIQUE'",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`) VALUES ('Growtopia', 'aosjd', '2012');"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1691084218884",
+    "error_string": "Error: Duplicate entry 'Growtopia' for key 'games.title_UNIQUE'",
+    "error_obj": {
+      "code": "ER_DUP_ENTRY",
+      "errno": 1062,
+      "sqlState": "23000",
+      "sqlMessage": "Duplicate entry 'Growtopia' for key 'games.title_UNIQUE'",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`) VALUES ('Growtopia', 'asdasd', '2012');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085148959",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085151637",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085154270",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085176351",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085210057",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085431296",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085482567",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085493756",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085565235",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085570679",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085668294",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085702430",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085715898",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691085729564",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691087067680",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691087067719",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691087067741",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'undefined'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'undefined'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'undefined');"
+    }
+  },
+  {
+    "timeStamp": "Getting_game_by_title-1691155262329",
+    "error_string": "RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 1",
+    "error_obj": {
+      "code": "ERR_HTTP_INVALID_STATUS_CODE"
+    }
+  },
+  {
+    "timeStamp": "Getting_game_by_title-1691155364734",
+    "error_string": "RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 1",
+    "error_obj": {
+      "code": "ERR_HTTP_INVALID_STATUS_CODE"
+    }
+  },
+  {
+    "timeStamp": "Creating_new_game-1691157439772",
+    "error_string": "Error: Duplicate entry 'clash of clans' for key 'games.title_UNIQUE'",
+    "error_obj": {
+      "code": "ER_DUP_ENTRY",
+      "errno": 1062,
+      "sqlState": "23000",
+      "sqlMessage": "Duplicate entry 'clash of clans' for key 'games.title_UNIQUE'",
+      "sql": "INSERT INTO `sp_games`.`games` (`title`, `description`, `year`) VALUES ('clash of clans', 'sdfsdf', '2010');"
+    }
+  },
+  {
+    "timeStamp": "Updating_cart-1691157691904",
+    "error_string": "TypeError: value.toLowerCase is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_reviews-1691157693405",
+    "error_string": "TypeError: value.toLowerCase is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_reviews-1691157693413",
+    "error_string": "TypeError: value.toLowerCase is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_reviews-1691157693422",
+    "error_string": "TypeError: value.toLowerCase is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_reviews-1691157693439",
+    "error_string": "TypeError: value.toLowerCase is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_reviews-1691157695099",
+    "error_string": "TypeError: value.toLowerCase is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Updating_cart-1691157695110",
+    "error_string": "TypeError: value.toLowerCase is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_reviews-1691157779293",
+    "error_string": "TypeError: value.toLowerCase is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_reviews-1691157779304",
+    "error_string": "TypeError: value.toLowerCase is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_reviews-1691157929316",
+    "error_string": "TypeError: value.toLowerCase is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Updating_cart-1691157931733",
+    "error_string": "TypeError: value.toLowerCase is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_reviews-1691157931751",
+    "error_string": "TypeError: value.toLowerCase is not a function",
+    "error_obj": {}
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166036724",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166039322",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166040160",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166040538",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166041023",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166041191",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166041387",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166041576",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166042075",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166042257",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166042443",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166042628",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166042824",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166043025",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166043171",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166043339",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166043519",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166043698",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166043871",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166044033",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166044233",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166044455",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166044618",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166044842",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  },
+  {
+    "timeStamp": "Getting_specific_game_id-1691166044967",
+    "error_string": "Error: Truncated incorrect DOUBLE value: 'null'",
+    "error_obj": {
+      "code": "ER_TRUNCATED_WRONG_VALUE",
+      "errno": 1292,
+      "sqlState": "22007",
+      "sqlMessage": "Truncated incorrect DOUBLE value: 'null'",
+      "sql": "UPDATE `sp_games`.`games` SET `total_votes` = 0 WHERE (`game_id` = 'null');"
+    }
+  }
+]

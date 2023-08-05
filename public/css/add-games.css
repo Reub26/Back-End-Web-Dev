@@ -1,0 +1,11 @@
+#game-container {
+  margin-top: 20px;
+  min-height: 800px;
+  background-color: #252525;
+  border-radius: 50px;
+  padding-bottom: 20px;
+}
+
+.form-label {
+  font-size: 2vh;
+}
