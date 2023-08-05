@@ -29,9 +29,27 @@ Able to access "home" page, "about" page, "games" page, and "reviews" page conta
 Search game title feature from "home" page and "games" page (search will show games containing whatever is keyed into search bar, e.g. "c" shows all games containing "c")
 Filter games by platform on "games" page
 Search game titles and Filter games by platform on "reviews" page (search will show games containing whatever is keyed into search bar, e.g. "c" shows all games containing "c")
-#### Add to Cart
+#### Games
+Able to see game details
+#### Cart
 Able to "add to cart" however since user is not logged in, no cart data will be saved (once browser is closed or user logs in and logs out, cart data is lost)
 Able to checkout as guest, however unable to save card details
-###### No proper payment method is set, only card details is asked to simulate a payment transaction
+note: No proper payment method is set, only card details is asked to simulate a payment transaction
 
-## Logged in users
+## Logged in users (Customer role)
+#### Access
+Able to access "home" page, "about" page, "games" page, and "reviews" page containing reviews left by other users
+#### Search and Filter
+Search game title feature from "home" page and "games" page (search will show games containing whatever is keyed into search bar, e.g. "c" shows all games containing "c")
+Filter games by platform on "games" page
+Search game titles and Filter games by platform on "reviews" page (search will show games containing whatever is keyed into search bar, e.g. "c" shows all games containing "c")
+#### Games
+Able to see game details
+#### Cart
+Able to "add to cart".
+Cart data is saved even if user logs off
+Able to checkout and choice to save card details for future payments
+note: No proper payment method is set, only card details is asked to simulate a payment transaction
+#### Profile
+User is able to change "Username", "Email", "Password" (can be left blank)
+Able to see payment history (previously bought games)
