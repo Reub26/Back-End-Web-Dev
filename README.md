@@ -32,6 +32,6 @@ Search game titles and Filter games by platform on "reviews" page (search will s
 #### Add to Cart
 Able to "add to cart" however since user is not logged in, no cart data will be saved (once browser is closed or user logs in and logs out, cart data is lost)
 Able to checkout as guest, however unable to save card details
-[^note]No proper payment method is set, only card details is asked to simulate a payment transaction
+###### No proper payment method is set, only card details is asked to simulate a payment transaction
 
 ## Logged in users
