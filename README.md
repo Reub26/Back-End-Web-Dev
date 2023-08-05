@@ -1,10 +1,11 @@
-# Back-End-Web-Dev
+# Back-End-WebDev
 Back End Web development (BED) assignment for school (pt 2)
 
 
 # Instructions for SP Games Website
 Done by:
 Reuben Goh, P2205711, DISM 2A03 (2023)
+Github repo: [Back-End-Webdev](https://github.com/Reub26/Back-End-Web-Dev)
 
 # Usage
 Run `db_init.sql` on mysql to get all the required data and tables first
