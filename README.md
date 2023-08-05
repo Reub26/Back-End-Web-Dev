@@ -161,3 +161,10 @@ Many-to-one game-usercart relationship
 
 Many-to-one gamecategory-gate relationship
 
+
+## Cart
+Card payment details can be saved and removed from database based on checkbox
+
+Item quantity can be changed in add to cart page
+
+If "add to cart" button is clicked on "game" or "game-details" page, quantity of 1 is incremented to current game if already in cart
